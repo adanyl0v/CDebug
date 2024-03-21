@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(CDebug VERSION 1.0.0 DESCRIPTION "A tool for displaying debugging information on the console screen" LANGUAGES C)
+project(CDebug VERSION 1.1.0 DESCRIPTION "A tool for displaying debugging information on the console screen" LANGUAGES C)
 
 set(CMAKE_C_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN TRUE)
@@ -17,6 +17,7 @@ message(STATUS "* System: ${CMAKE_SYSTEM_NAME} x${SYSTEM_BITNESS}")
 message(STATUS "* CMake build type: ${CMAKE_BUILD_TYPE}")
 
 add_library(cdebug
+    src/cdebug_args.c
 
 )
 

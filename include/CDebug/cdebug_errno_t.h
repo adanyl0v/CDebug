@@ -5,6 +5,7 @@
 typedef enum cdebug_errno_t
 {
     CDEBUG_ERRNO_INVALID_ARGS = 2,
+    CDEBUG_ERRNO_FAILED_COPY
 } cdebug_errno_t;
 
 #endif //CDEBUG_ERRNO_T_H
