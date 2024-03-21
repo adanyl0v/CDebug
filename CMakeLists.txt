@@ -17,11 +17,7 @@ message(STATUS "* System: ${CMAKE_SYSTEM_NAME} x${SYSTEM_BITNESS}")
 message(STATUS "* CMake build type: ${CMAKE_BUILD_TYPE}")
 
 add_library(cdebug
-    # Headers
-    include/CDebug/cdebug_export.h
-    include/CDebug/cdebug.h
 
-    # Sources
 )
 
 set_target_properties(cdebug PROPERTIES
@@ -68,6 +64,8 @@ set(CDEBUG_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include/${CMAKE_PROJECT_NAME}
 install(
     FILES
     ${CDEBUG_INCLUDE_DIR}/cdebug_export.h
+    ${CDEBUG_INCLUDE_DIR}/cdebug_errno_t.h
+    ${CDEBUG_INCLUDE_DIR}/cdebug_args_t.h
     ${CDEBUG_INCLUDE_DIR}/cdebug.h
     DESTINATION /usr/local/include/${CMAKE_PROJECT_NAME}/
 )
