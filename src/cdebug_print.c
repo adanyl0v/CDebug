@@ -17,15 +17,15 @@ cdebug_print(
 
     switch (mode)
     {
-    case CDEBUG_MODE_INFO:
+    case CDEBUG_INFO:
         fprintf(stdout, "[INFO]: %s\n", message);
         break;
 
-    case CDEBUG_MODE_WARNING:
+    case CDEBUG_WARNING:
         fprintf(stdout, "[WARNING]: %s\n", message);
         break;
     
-    case CDEBUG_MODE_ERROR:
+    case CDEBUG_ERROR:
         fprintf(stderr, "[ERROR]: %s\n", message);
         break;
     
@@ -51,15 +51,15 @@ cdebug_print_local(
 
     switch (mode)
     {
-    case CDEBUG_MODE_INFO:
+    case CDEBUG_INFO:
         fprintf(stdout, "[LOG]: [%s()][%s:%lu]:\n-> ", func, file, line);
         break;
 
-    case CDEBUG_MODE_WARNING:
+    case CDEBUG_WARNING:
         fprintf(stdout, "[WARNING]: [%s()][%s:%lu]:\n-> ", func, file, line);
         break;
 
-    case CDEBUG_MODE_ERROR:
+    case CDEBUG_ERROR:
         fprintf(stderr, "[ERROR]: [%s()][%s:%lu]:\n-> ", func, file, line);
         break;
 
@@ -73,7 +73,7 @@ cdebug_print_local(
     char message[CDEBUG_ARGS_STRLEN_MAX] = "";
     vsnprintf(message, CDEBUG_ARGS_STRLEN_MAX, format, args);
 
-    FILE* stream = mode == CDEBUG_MODE_ERROR ? stderr : stdout;
+    FILE* stream = mode == CDEBUG_ERROR ? stderr : stdout;
     for (size_t i = 0; message[i] != '\0' && i < CDEBUG_ARGS_STRLEN_MAX; i++)
     {
         fputc(message[i], stream);

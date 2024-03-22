@@ -17,9 +17,9 @@
 
 typedef enum cdebug_mode_t
 {
-    CDEBUG_MODE_INFO,
-    CDEBUG_MODE_WARNING,
-    CDEBUG_MODE_ERROR,
+    CDEBUG_INFO,
+    CDEBUG_WARNING,
+    CDEBUG_ERROR,
 } cdebug_mode_t;
 
 typedef struct cdebug_args_t
