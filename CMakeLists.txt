@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(CDebug VERSION 1.2.1 DESCRIPTION "A tool for displaying debugging information on the console screen" LANGUAGES C)
+project(CDebug VERSION 1.3.0 DESCRIPTION "A tool for displaying debugging information on the console screen" LANGUAGES C)
 
 set(CMAKE_C_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN TRUE)
@@ -25,6 +25,7 @@ message(STATUS "* CMake Release C flags: ${CDEBUG_COMPILE_OPTIONS_RELEASE}")
 add_library(cdebug
     src/cdebug_args.c
     src/cdebug_print.c
+    src/cdebug_get_last.c
 )
 
 target_compile_options(cdebug PRIVATE 
