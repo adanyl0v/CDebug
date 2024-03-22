@@ -52,7 +52,7 @@ cdebug_print_local(
     switch (mode)
     {
     case CDEBUG_INFO:
-        fprintf(stdout, "[LOG]: [%s()][%s:%lu]:\n-> ", func, file, line);
+        fprintf(stdout, "[INFO]: [%s()][%s:%lu]:\n-> ", func, file, line);
         break;
 
     case CDEBUG_WARNING:
