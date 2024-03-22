@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(CDebug VERSION 1.1.1 DESCRIPTION "A tool for displaying debugging information on the console screen" LANGUAGES C)
+project(CDebug VERSION 1.2.0 DESCRIPTION "A tool for displaying debugging information on the console screen" LANGUAGES C)
 
 set(CMAKE_C_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN TRUE)

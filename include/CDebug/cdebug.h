@@ -29,7 +29,7 @@ extern "C" {
     CDEBUG_API int
     cdebug_print_args(
         cdebug_mode_t mode,
-        const cdebug_args_t *const args
+        const cdebug_args_t *const src
     );
 #pragma endregion CDebugPrint
 

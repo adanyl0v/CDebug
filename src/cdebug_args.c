@@ -1,8 +1,8 @@
-#include <CDebug/cdebug_args_t.h>
-
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
+
+#include <CDebug/cdebug_args_t.h>
 
 CDEBUG_API int
 cdebug_args_copy(
