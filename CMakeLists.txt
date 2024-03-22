@@ -16,9 +16,20 @@ endif()
 message(STATUS "* System: ${CMAKE_SYSTEM_NAME} x${SYSTEM_BITNESS}")
 message(STATUS "* CMake build type: ${CMAKE_BUILD_TYPE}")
 
+option(CDEBUG_COMPILE_OPTIONS_DEBUG "" STRING)
+option(CDEBUG_COMPILE_OPTIONS_RELEASE "" STRING)
+
+message(STATUS "* CMake Debug C flags: ${CDEBUG_COMPILE_OPTIONS_DEBUG}")
+message(STATUS "* CMake Release C flags: ${CDEBUG_COMPILE_OPTIONS_RELEASE}")
+
 add_library(cdebug
     src/cdebug_args.c
 
+)
+
+target_compile_options(cdebug PRIVATE 
+	"$<$<CONFIG:Debug>:${CDEBUG_COMPILE_OPTIONS_DEBUG}>"
+	"$<$<CONFIG:Release>:${CDEBUG_COMPILE_OPTIONS_RELEASE}>"
 )
 
 set_target_properties(cdebug PROPERTIES

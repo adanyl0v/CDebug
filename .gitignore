@@ -7,6 +7,7 @@ bin/
 build*/
 cmake-build*/
 tests/
+scripts/
 
 # Prerequisites
 *.sh
