@@ -1,3 +1,7 @@
+if(${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_BINARY_DIR})
+    message(FATAL_ERROR "Prevented in-tree build. Please create a build directory outside of the source code and run \"cmake -S ${CMAKE_SOURCE_DIR} -B .\" from there")
+endif()
+
 cmake_minimum_required(VERSION 3.5)
 project(CDebug VERSION 1.4.3 DESCRIPTION "A tool for displaying debugging information on the console screen" LANGUAGES C)
 
