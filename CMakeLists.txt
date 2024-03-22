@@ -42,7 +42,7 @@ target_include_directories(cdebug
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/${CMAKE_PROJECT_NAME}-config-version.cmake"
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/${CMAKE_PROJECT_NAME}ConfigVersion.cmake"
     VERSION ${CMAKE_PROJECT_VERSION}
     COMPATIBILITY SameMajorVersion
 )
@@ -73,7 +73,7 @@ install(
 
 install(
     FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/${CMAKE_PROJECT_NAME}-config.cmake
-    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/${CMAKE_PROJECT_NAME}-config-version.cmake
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/${CMAKE_PROJECT_NAME}Config.cmake
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/${CMAKE_PROJECT_NAME}ConfigVersion.cmake
     DESTINATION /usr/local/lib/cmake/${CMAKE_PROJECT_NAME}/
 )
