@@ -30,6 +30,10 @@ typedef struct cdebug_args_t
     char message[CDEBUG_ARGS_STRLEN_MAX];
 } cdebug_args_t;
 
+#ifndef CDEBUG_ARGS_INITIALIZER
+#define CDEBUG_ARGS_INITIALIZER {"", "", 0, ""}
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
