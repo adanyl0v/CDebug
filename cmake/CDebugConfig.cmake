@@ -1,2 +1,2 @@
 include(CMakeFindDependencyMacro)
-include("${CMAKE_CURRENT_LIST_DIR}/${CMAKE_PROJECT_NAME}Targets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/CDebugTargets.cmake")

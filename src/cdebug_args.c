@@ -12,24 +12,25 @@ cdebug_args_copy(
     if (dst == NULL || src == NULL)
         return CDEBUG_ERRNO_INVALID_ARGS;
 
-    size_t length = 0;
+    for (size_t i = 0; src->file[i] != '\0' && i < CDEBUG_ARGS_STRLEN_MAX - 1; ++i)
+    {
+        dst->file[i] = src->file[i];
+        dst->file[i + 1] = '\0';
+    }
 
-    while (src->file[length] != '\0')
-        ++length;
-    if (memcpy(dst->file, src->file, length))
-        return 1;
-
-    while (src->func[length] != '\0')
-        ++length;
-    if (memcpy(dst->func, src->func, length))
-        return 1;
+    for (size_t i = 0; src->func[i] != '\0' && i < CDEBUG_ARGS_STRLEN_MAX - 1; ++i)
+    {
+        dst->func[i] = src->func[i];
+        dst->func[i + 1] = '\0';
+    }
 
     dst->line = src->line;
 
-    while (src->message[length] != '\0')
-        ++length;
-    if (memcpy(dst->message, src->message, length))
-        return 1;
+    for (size_t i = 0; src->message[i] != '\0' && i < CDEBUG_ARGS_STRLEN_MAX - 1; ++i)
+    {
+        dst->message[i] = src->message[i];
+        dst->message[i + 1] = '\0';
+    }
 
     return 0;
 }
@@ -46,29 +47,26 @@ cdebug_args_copy_local(
     if (dst == NULL || file == NULL || func == NULL || format == NULL)
         return CDEBUG_ERRNO_INVALID_ARGS;
 
-    size_t length = 0;
+    for (size_t i = 0; file[i] != '\0' && i < CDEBUG_ARGS_STRLEN_MAX - 1; ++i)
+    {
+        dst->file[i] = file[i];
+        dst->file[i + 1] = '\0';
+    }
 
-    while (file[length] != '\0')
-        ++length;
-    if (memcpy(dst->file, file, length))
-        return CDEBUG_ERRNO_FAILED_COPY;
-
-    while (func[length] != '\0')
-        ++length;
-    if (memcpy(dst->func, func, length))
-        return CDEBUG_ERRNO_FAILED_COPY;
+    for (size_t i = 0; func[i] != '\0' && i < CDEBUG_ARGS_STRLEN_MAX - 1; ++i)
+    {
+        dst->func[i] = func[i];
+        dst->func[i + 1] = '\0';
+    }
 
     dst->line = line;
 
     va_list args;
     va_start(args, format);
-    char message[CDEBUG_ARGS_STRLEN_MAX] = "";
-    if (vsnprintf(message, CDEBUG_ARGS_STRLEN_MAX, format, args) < 1)
+    
+    if (vsnprintf(dst->message, CDEBUG_ARGS_STRLEN_MAX, format, args) < 1)
         return CDEBUG_ERRNO_FAILED_COPY;
+
     va_end(args);
-
-    if (memcpy(dst->message, message, length))
-        return CDEBUG_ERRNO_FAILED_COPY;
-
     return 0;
 }
