@@ -7,10 +7,10 @@
 static cdebug_args_t cdebug_last_info = 
     {__BASE_FILE__, "", __LINE__, "no info"};
 
-static cdebug_args_t cdebug_last_warning = 
+cdebug_args_t cdebug_last_warning = 
     {__BASE_FILE__, "", __LINE__, "no warnings"};
 
-static cdebug_args_t cdebug_last_error = 
+cdebug_args_t cdebug_last_error = 
     {__BASE_FILE__, "", __LINE__, "no errors"};
 
 #endif //CDEBUG_LAST_H
